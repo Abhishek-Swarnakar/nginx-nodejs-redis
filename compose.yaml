@@ -18,7 +18,7 @@ services:
     hostname: webapp2
     build: ./web
     ports:
-      -"82:5000"
+    - "82:5000"
 
 nginx:
   build: ./nginx
