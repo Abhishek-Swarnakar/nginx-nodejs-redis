@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 
 COPY package.json package-lock.json /usr/src/app/
 
-RUN mpm ci
+RUN npm ci
 
 COPY server.js /usr/src/app/
 
