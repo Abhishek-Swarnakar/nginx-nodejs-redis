@@ -1,0 +1,29 @@
+services:
+  redis:
+    image: 'redislabs/redismod'
+    ports:
+    - "6379:6379"
+
+
+  webapp1:
+    restart: on-failure
+    hostname: webapp1
+    build: ./web
+    ports:
+    - "81:5000"
+
+  webapp2:
+    restart: on-failure
+    hostname: webapp2
+    build: ./web
+    ports:
+      -"82:5000"
+
+nginx:
+  build: ./nginx
+  ports:
+    - "80:80"
+
+  depends_on:
+  - webapp1
+  - webapp2
